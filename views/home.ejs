@@ -16,6 +16,12 @@
             </div>
             <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
                 <a href="/blog/<%= blog._id %>" class="btn btn-primary btn-sm">View</a>
+                <% if (blog.createdBy._id.toString() === user._id.toString()) { %>
+                    <a href="/blog/edit/<%= blog._id %>" class="btn btn-primary">Edit</a>
+                    <form action="/blog/delete/<%= blog._id %>" method="POST" style="display: inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                <% } %>
             </div>
         </div>
         <% }) %>
