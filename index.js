@@ -22,7 +22,7 @@ app.set('views',path.resolve('./views'));
 
 
 app.get('/',checkforAuth('token'),async (req,res) => {
-    const allblogs = await Blog.find({createdBy: req.USER._id}).sort({createdAt: -1});
+    const allblogs = await Blog.find({}).sort({createdAt: -1});
     return res.render("home", {
         user: req.USER,
         blogs: allblogs
